@@ -7,11 +7,11 @@
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
-    {{ if .Site.Params.description }}<meta name="description" content="{{ .Site.Params.description }}">{{ end }}
+    {{ with .Site.Params.description }}<meta name="description" content="{{.}}">{{ end }}
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400|Old+Standard+TT:400' rel='stylesheet' type='text/css'>
 
-    {{ if .Site.Params.favicon }}<link rel="shortcut icon" href="{{ .Site.Params.favicon }}">{{ end }}
+    {{ with .Site.Params.faviconico }}<link rel="shortcut icon" href="{{.}}">{{ end }}
 
     <title>
       {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
@@ -25,14 +25,14 @@
 
     {{ partial "styles.html" . }}
 
-    {{ if .RSSLink }}
-      <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-      <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+    {{ with .RSSLink }}
+      <link href="{{.}}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+      <link href="{{.}}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
     {{ end }}
 
-    {{ if .Site.Params.gsiteverification }}<meta name="google-site-verification" content="{{ .Site.Params.gsiteverification }}" />{{ end }}
-    {{ if .Site.Params.ykey }}<meta name="y_key" content="{{ .Site.Params.ykey }}" />{{ end }}
-    {{ if .Site.Params.msvalidate }}<meta name="msvalidate.01" content="{{ .Site.Params.msvalidate }}" />{{ end }}
+    {{ with .Site.Params.gsiteverification }}<meta name="google-site-verification" content="{{.}}" />{{ end }}
+    {{ with .Site.Params.ykey }}<meta name="y_key" content="{{.}}" />{{ end }}
+    {{ with .Site.Params.msvalidate }}<meta name="msvalidate.01" content="{{.}}" />{{ end }}
     <meta name="robots" content="index, follow" />
     <meta name="revisit-after" content="2 days" />
 
