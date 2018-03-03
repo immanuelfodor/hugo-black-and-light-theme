@@ -6,7 +6,9 @@
       <li>
         <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
         <div id=date>
-          <time>{{ .Date.Format (.Site.Params.dateform | default "January 2006") }}</time>
+          <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
+            {{ .Date.Year }} {{ index $.Site.Data.months (printf "%d" .Date.Month) }} {{ .Date.Day }}
+          </time>
         </div>
       </li>
     {{ end }}

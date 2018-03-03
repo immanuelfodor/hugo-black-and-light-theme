@@ -4,7 +4,7 @@
   <h1>{{ if .Params.heading }} {{ .Params.heading }} {{ else }} {{ .Title }} {{ end }}</h1>
 
   <div id=sub-header>
-    {{ .Date.Format (.Site.Params.dateform | default "January 2006") }} · {{ .ReadingTime }} minute read
+    {{ .Date.Year }} {{ index $.Site.Data.months (printf "%d" .Date.Month) }} {{ .Date.Day }} · {{ .ReadingTime }} perc elolvasni
   </div>
 
   <div class="entry-content">
