@@ -357,4 +357,10 @@
       font-size:12px;
     }
   }
+
+  {{ with .Site.Params.accentcolor }}
+    #nav a {
+      color: {{.}};
+    }
+  {{ end }}
 </style>
