@@ -9,7 +9,7 @@
     <meta name="referrer" content="no-referrer">
     {{ with .Site.Params.description }}<meta name="description" content="{{.}}">{{ end }}
 
-    {{ with .Site.Params.faviconico }}<link rel="shortcut icon" href="{{.}}">{{ end }}
+    {{ partial "favicon.html" . }}
 
     <title>
       {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
