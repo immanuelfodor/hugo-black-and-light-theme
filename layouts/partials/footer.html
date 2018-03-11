@@ -1,3 +1,9 @@
   {{ template "_internal/google_analytics_async.html" . }}
+
+  <section id=footer>
+      {{ with $.Site.Copyright }}{{ . }}{{ end }}
+      {{ if and $.Site.Copyright $.Site.Params.gdpr }}<br />{{ end }}
+      {{ with $.Site.Params.gdpr }}{{ . }}{{ end }}
+  </section>
 </body>
 </html>
