@@ -26,10 +26,9 @@
 
     {{ partial "styles.html" . }}
 
-    {{ with .RSSLink }}
-      <link href="{{.}}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
-      <link href="{{.}}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
-    {{ end }}
+    {{ $rssxmlfile := "index.xml" }}
+    <link href="{{ $rssxmlfile | absURL }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+    <link href="{{ $rssxmlfile | absURL }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
 
     {{ with .Site.Params.gsiteverification }}<meta name="google-site-verification" content="{{.}}" />{{ end }}
     {{ with .Site.Params.ykey }}<meta name="y_key" content="{{.}}" />{{ end }}
