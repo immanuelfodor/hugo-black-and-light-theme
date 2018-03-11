@@ -20,7 +20,7 @@
       {{ else }}
         {{ if .Params.heading }} {{ .Params.heading }} {{ else }} {{ .Title }} {{ end }}
       {{ end }}
-      {{ with .Site.Params.sitename }} - {{.}}{{ end }}
+      {{ with $.Site.Params.sitename }} - {{.}}{{ end }}
     </title>
     <link rel="canonical" href="{{ .Permalink }}">
 
